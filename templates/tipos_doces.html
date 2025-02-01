@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Tipos de Doce{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Cadastro de Tipos de Doce</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
+<div class="col-md-8">
+    <h2>Tipos de Doce Cadastrados</h2>
+    <ul>
+        {% for tipo_doce in tipos_doce_all %}
+        <li>{{ tipo_doce.name }} - {{ tipo_doce.categoria }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

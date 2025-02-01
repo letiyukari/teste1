@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Doces{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Cadastro de Doces</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
+<div class="col-md-8">
+    <h2>Doces Cadastrados</h2>
+    <ul>
+        {% for doce in doces_all %}
+        <li>{{ doce.name }} - {{ doce.tipo_doce.name }} - R$ {{ doce.preco }} - Quantidade: {{ doce.quantidade }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
